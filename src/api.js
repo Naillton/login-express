@@ -1,4 +1,5 @@
 const express = require('express');
+const UserRouter = require('./routes/UserRoutes');
 
 let cors = require('cors');
 
@@ -6,6 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use('/', UserRouter);
 
 app.use((erro, _req, res, next) => {
   const { name, message } = erro;
